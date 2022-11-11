@@ -5,7 +5,7 @@
 " but files with a C-like syntax are cindented
 :autocmd FileType c,cpp,h,java :set cindent
 " add pathogen
-execute pathogen#infect()
+"execute pathogen#infect()
 filetype plugin indent on
 " do syntax highlighting
 :syntax on
@@ -45,7 +45,7 @@ set t_Co=256
 " set color scheme
 " :colorscheme wombat
 " :colorscheme desert
-:colorscheme sublimemonokai
+" :colorscheme sublimemonokai
 syntax enable
 ":let g:solarized_termcolors=256
 ":set background=dark
