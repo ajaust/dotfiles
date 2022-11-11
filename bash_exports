@@ -8,10 +8,22 @@ export EDITOR=nvim
 export VISUAL=nvim
 export FILESIZE=1000
 
+
+#export PATH=${HOME}/.local/bin:${PATH}
+#export PATH=${HOME}/bin:${PATH}
+#if [[ -d ${HOME}/bin/git-annex.linux ]]; then
+#  export PATH="${HOME}/bin/git-annex.linux":${PATH}
+#fi
 # zstd
-if [[ -d ${HOME}/bin/zstd/programs ]]; then
-  export PATH="${HOME}/bin/zstd/programs":${PATH}
-fi
+for dir in ${HOME}/bin/zstd/programs  "${HOME}/bin/${HOSTNAME}" "${HOME}/bin" "${HOME}/Library/Python/3.9/bin"
+do
+  echo "Check for directory ${dir}"
+  if [[ -d "${dir}" ]]; then
+    echo "Directory does exist"
+    export PATH="${dir}":${PATH}
+  fi
+done
+#export PATH=${PATH}:~/bin/"${HOSTNAME}"
 
 case $HOSTNAME in
   lapsgs24)
@@ -37,7 +49,7 @@ case $HOSTNAME in
   ipvs-epyc2)
     export MODULEPATH=${MODULEPATH}:/home/jaustar/modulefiles/$HOSTNAME
   ;;
-  (*)
+  arch*)
     export CODIPACKDIR=/opt/CoDiPack
     export DISTCC_HOSTS="deepthought/5,lzo,cpp"
     case ${HOSTNAME} in
@@ -53,7 +65,9 @@ case $HOSTNAME in
       *)
       ;;
     esac
-	;;
+  ;;
+  *)
+  ;;
 esac
 
 case $HOSTNAME in
@@ -65,6 +79,21 @@ case $HOSTNAME in
     ;;
 esac
 
+# Export extra paths
+for directory in /opt/homebrew/bin
+do
+  if [[ -d "${directory}" ]]; then
+    export PATH="${directory}":"${PATH}"
+  fi
+done
+
+for directory in /${HOME}/software/modulefiles
+do
+  if [[ -d "${directory}" ]]; then
+    export MODULEPATH="${directory}":"${MODULEPATH}"
+  fi
+done
+
 
 # Use gnome-keyring on a desktop session or else run ssh-agent
 #This also takes care that only one ssh-agent is running. I don't know if this conflicts with gnome.
@@ -73,7 +102,10 @@ if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
 fi
 if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+    if [[ -f "$XDG_RUNTIME_DIR/ssh-agent.env" ]]
+    then
+        source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+    fi
 fi
 
 #if [[ ! -z "${DESKTOP_SESSION}" ]];then
