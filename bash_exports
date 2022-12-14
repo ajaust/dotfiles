@@ -15,11 +15,11 @@ export FILESIZE=1000
 #  export PATH="${HOME}/bin/git-annex.linux":${PATH}
 #fi
 # zstd
-for dir in ${HOME}/bin/zstd/programs  "${HOME}/bin/${HOSTNAME}" "${HOME}/bin" "${HOME}/Library/Python/3.9/bin"
+for dir in ${HOME}/bin/zstd/programs  "${HOME}/bin/${HOSTNAME}" "${HOME}/bin" "${HOME}/Library/Python/3.9/bin" "${HOME}/Library/Python/3.10/bin"
 do
-  echo "Check for directory ${dir}"
+  #echo "Check for directory ${dir}"
   if [[ -d "${dir}" ]]; then
-    echo "Directory does exist"
+    #echo "  Directory does exist. Appending to PATH"
     export PATH="${dir}":${PATH}
   fi
 done
