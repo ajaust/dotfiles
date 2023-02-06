@@ -15,7 +15,7 @@ export FILESIZE=1000
 #  export PATH="${HOME}/bin/git-annex.linux":${PATH}
 #fi
 # zstd
-for dir in ${HOME}/bin/zstd/programs  "${HOME}/bin/${HOSTNAME}" "${HOME}/bin" "${HOME}/Library/Python/3.9/bin" "${HOME}/Library/Python/3.10/bin"
+for dir in ${HOME}/bin/zstd/programs  "${HOME}/bin/${HOSTNAME}" "${HOME}/bin" "${HOME}/Library/Python/3.9/bin" "${HOME}/Library/Python/3.10/bin" "${HOME}/go/bin"
 do
   #echo "Check for directory ${dir}"
   if [[ -d "${dir}" ]]; then
