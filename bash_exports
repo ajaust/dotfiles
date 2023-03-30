@@ -15,7 +15,7 @@ export FILESIZE=1000
 #  export PATH="${HOME}/bin/git-annex.linux":${PATH}
 #fi
 # zstd
-for dir in ${HOME}/bin/zstd/programs  "${HOME}/bin/${HOSTNAME}" "${HOME}/bin" "${HOME}/Library/Python/3.9/bin" "${HOME}/Library/Python/3.10/bin" "${HOME}/go/bin"
+for dir in ${HOME}/bin/zstd/programs  "${HOME}/bin/${HOSTNAME}" "${HOME}/bin" "${HOME}/Library/Python/3.9/bin" "${HOME}/Library/Python/3.10/bin" "${HOME}/go/bin" "/opt/homebrew/bin"
 do
   #echo "Check for directory ${dir}"
   if [[ -d "${dir}" ]]; then
@@ -130,3 +130,7 @@ JULIA_VERSION=1.6.3
 if [ -d ${HOME}/software/julia-${JULIA_VERSION} ]; then
   export PATH="${HOME}/software/julia-${JULIA_VERSION}/bin":"${PATH}"
 fi
+
+# Disable Homebrew's data collection
+# https://docs.brew.sh/Analytics#opting-out
+export HOMEBREW_NO_ANALYTICS=1
