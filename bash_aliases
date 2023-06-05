@@ -26,3 +26,15 @@ case $HOSTNAME in
   (*)
   ;;
 esac
+
+
+if [[ "${OSTYPE}" == *"darwin"* ]]; then
+  alias myclip="pbcopy"
+else
+  if [[ "${XDG_SESSION_TYPE}" == "wayland" ]]; then
+    alias myclip="wl-copy"
+  else
+    alias myclip="xclip"
+  fi
+fi
+alias "clip_output=tr -d '\n' | myclip"

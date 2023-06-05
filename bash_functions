@@ -43,3 +43,7 @@ show_dune_control_path(){
   echo "DUNE_CONTROL_PATH=${DUNE_CONTROL_PATH}"
   return 0
 }
+
+function copy-public-ip-to-clipboard(){
+ curl --silent ipv4.icanhazip.com | clip_output
+}
