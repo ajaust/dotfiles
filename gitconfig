@@ -1,10 +1,14 @@
 [user]
 	name = Alexander Jaust
 	email = aej@equinor.com
+    # Signing key for work
+    signingkey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEC8ZAk3y7RDBji8dzCZd4R2sD/b+GnroUfxkr01iJ23 aej@Alexanders-MacBook-Pro.local"
 [core]
 	excludesfile = ~/.gitignore_global
 [diff]
   tool = meld
+[gpg]
+    format = ssh
 [merge]
   tool = kdiff3
 [push]
@@ -14,9 +18,10 @@
 [init]
 	defaultBranch = main
 [commit]
-	gpgsign = false
+	gpgsign = true
 [format]
 	pretty = format:%C(auto,yellow)%h %C(auto,blue)%>(12,trunc)%ad %C(auto,green)%<(20,trunc)%aN%C(auto,reset)%s%C(auto,red)% gD% D
 [alias]
   fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
-
+[tag]
+    gpgsign = true
