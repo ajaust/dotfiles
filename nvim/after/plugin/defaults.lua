@@ -123,6 +123,3 @@ vim.cmd [[colorscheme kanagawa]]
 --vim.keymap.set("n", "<C-n>", function() ui.nav_file(1) end)
 --vim.keymap.set("n", "<C-s>", function() ui.nav_file(1) end)
 
--- colorscheme
-vim.cmd [[colorscheme kanagawa]]
-
