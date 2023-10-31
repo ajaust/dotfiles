@@ -94,6 +94,16 @@ vim.opt.isfname:append("@-@")
 -- Set up color scheme
 vim.cmd [[colorscheme kanagawa]]
 
+-- Python indentation
+-- https://neovim.io/doc/user/indent.html#ft-python-indent
+vim.g.python_indent = {}
+vim.g.python_indent.disable_parentheses_indenting = false
+vim.g.python_indent.closed_paren_align_last_line = false
+vim.g.python_indent.searchpair_timeout = 150
+vim.g.python_indent.continue = 'shiftwidth()'
+vim.g.python_indent.open_paren = 'shiftwidth()'
+vim.g.python_indent.nested_paren = 'shiftwidth()'
+
 -- Ntree shortcuts
 --vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { desc = 'Toggle Ntree'} )
 --vim.keymap.set('n', '<leader>e', ':NvimTreeFocus<CR>', { desc = 'Focus Ntree'} )
