@@ -133,3 +133,6 @@ vim.g.python_indent.nested_paren = 'shiftwidth()'
 --vim.keymap.set("n", "<C-n>", function() ui.nav_file(1) end)
 --vim.keymap.set("n", "<C-s>", function() ui.nav_file(1) end)
 
+-- GitHub copilot stuff
+--vim.g.copilot_assume_mapped = true
+vim.g.copilot_enabled = false
