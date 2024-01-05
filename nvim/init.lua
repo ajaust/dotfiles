@@ -513,7 +513,22 @@ require('mason-lspconfig').setup()
 local servers = {
   clangd = {},
   gopls = {},
-  pyright = {},
+  --pyright = {},
+  --pylsp = {
+  --  plugins = {
+  --    black = { enabled = true },
+  --    isort = { enabled = true},
+  --    flake8 = { enabled = true },
+
+  --  },
+  --},
+  -- Very fast LSP for Python
+  pylsp = {
+    plugins = {
+      ruff = { enabled = true },
+    },
+  },
+  --ruff_lsp = {},
   rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
