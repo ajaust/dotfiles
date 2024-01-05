@@ -599,7 +599,7 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
--- From new cickstart
+-- From new kickstart
 --    ['<Tab>'] = cmp.mapping(function(fallback)
 --      if cmp.visible() then
 --        cmp.select_next_item()
@@ -615,26 +615,26 @@ cmp.setup {
     --    fallback()
     --  end
     --end, { 'i', 's' }),
-    ["<Tab>"] = vim.schedule_wrap(function(fallback)
-      if cmp.visible() and has_words_before() then
-        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-      else
-        fallback()
-      end
-    end, {'i', 's'}),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.locally_jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
+    --["<Tab>"] = vim.schedule_wrap(function(fallback)
+    --  if cmp.visible() and has_words_before() then
+    --    cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+    --  else
+    --    fallback()
+    --  end
+    --end, {'i', 's'}),
+    --['<S-Tab>'] = cmp.mapping(function(fallback)
+    --  if cmp.visible() then
+    --    cmp.select_prev_item()
+    --  elseif luasnip.locally_jumpable(-1) then
+    --    luasnip.jump(-1)
+    --  else
+    --    fallback()
+    --  end
+    --end, { 'i', 's' }),
   },
   sources = {
     -- Copilot
-    { name = 'copilot', group_index = 2 },
+    --{ name = 'copilot', group_index = 2 },
     -- Kickstart sources
     { name = 'nvim_lsp', group_index = 2 },
     { name = 'luasnip', group_index = 2 },
