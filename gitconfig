@@ -2,7 +2,7 @@
 	name = Alexander Jaust
 	email = aej@equinor.com
     # Signing key for work
-    signingkey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEC8ZAk3y7RDBji8dzCZd4R2sD/b+GnroUfxkr01iJ23 aej@Alexanders-MacBook-Pro.local"
+    signingkey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICfa7m+poscwZd1iD6LV/v/LtsD6CVbGID6MXWbqAOSw aej@equinor-macbook"
 [core]
 	excludesfile = ~/.gitignore_global
 [diff]
