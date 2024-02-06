@@ -135,5 +135,5 @@ vim.g.python_indent.nested_paren = 'shiftwidth()'
 
 -- GitHub copilot stuff
 --vim.g.copilot_assume_mapped = true
-vim.g.copilot_enabled = false
-vim.cmd(":Copilot disable")
+--vim.g.copilot_enabled = false
+--vim.cmd(":Copilot disable")
