@@ -51,5 +51,5 @@ history = 10000
 [window]
 opacity = 0.93
 
-[keyboard]
-bindings = [ { key = "F", mods = "Control", chars = "tmux-sessionizer \n" },]
+#[keyboard]
+#bindings = [ { key = "F", mods = "Control", chars = "tmux-sessionizer \n" },]
