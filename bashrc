@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 
-for file in /etc/profile.d/modules.sh /etc/profile /etc/bash.bashrc /usr/local.nfs/rc/bashrc ~/.git-{completion.bash,prompt.sh} ~/.svn-prompt.sh ~/.bash_{exports,aliases,functions,prompt} ~/.fzf.bash /usr/share/fzf/*.bash /usr/share/git/completion/git-{completion.bash,prompt.sh} ${HOME}/.cargo/env  ${HOME}/bin/git-annex.linux/bash/git-completion.bash "$HOME/.cargo/env" "/opt/homebrew/opt/lmod/init/profile"
+for file in /etc/profile.d/modules.sh /etc/profile /etc/bash.bashrc /usr/local.nfs/rc/bashrc ${HOME}/.git-{completion.bash,prompt.sh} ~/.svn-prompt.sh ~/.bash_{exports,aliases,functions,prompt} ~/.fzf.bash /usr/share/fzf/*.bash /usr/share/git/completion/git-{completion.bash,prompt.sh} ${HOME}/.cargo/env  ${HOME}/bin/git-annex.linux/bash/git-completion.bash "$HOME/.cargo/env" "/opt/homebrew/opt/lmod/init/profile" /opt/homebrew/etc/bash_complection "${HOME}/.github-cli-completion.bash" "${HOME}/.radix-completion.bash"
 do
     if [[ -f "$file" ]]
     then
@@ -14,7 +14,7 @@ do
     fi
 done
 
-for dir in "${HOME}/.local/bin" "${HOME}/bin"
+for dir in "${HOME}/.local/bin" "${HOME}/bin" "${HOME}/software/erlang_ls/bin"
 do
     if [[ -d "$dir" ]]
     then
@@ -28,18 +28,18 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-for dir in /data/scratch/jaustar/software/spack /data/scratch/sgs/jaustar/spack /scratch-nfs/jaustar/software/spack ~/software/spack
-do
-    if [[ -d "$dir" ]]
-    then
-      export SPACK_ROOT="$dir"
-      . $SPACK_ROOT/share/spack/setup-env.sh
-    fi
-done
+#for dir in /data/scratch/jaustar/software/spack /data/scratch/sgs/jaustar/spack /scratch-nfs/jaustar/software/spack ~/software/spack
+#do
+#    if [[ -d "$dir" ]]
+#    then
+#      export SPACK_ROOT="$dir"
+#      . $SPACK_ROOT/share/spack/setup-env.sh
+#    fi
+#done
 
 HOMEBREW_COMPLETION_DIR="/opt/homebrew/completion.d"
 if [[ -d "${HOMEBREW_COMPLETION_DIR}" ]]; then
-  for f in "${HOMEBREW_COMPLETION_DIR}" 
+  for f in "${HOMEBREW_COMPLETION_DIR}"
   do
     . "$f"
   done
