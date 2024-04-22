@@ -1,10 +1,10 @@
 [user]
-	name = Alexander Jaust
-	email = aej@equinor.com
-    # Signing key for work
-    signingkey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICfa7m+poscwZd1iD6LV/v/LtsD6CVbGID6MXWbqAOSw aej@equinor-macbook"
+  name = Alexander Jaust
+  email = aej@equinor.com
+  # Signing key for work
+  signingkey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICfa7m+poscwZd1iD6LV/v/LtsD6CVbGID6MXWbqAOSw aej@equinor-macbook"
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [diff]
   tool = meld
 [gpg]
@@ -14,14 +14,14 @@
 [push]
   default = simple
 [pull]
-	rebase = true
+  rebase = true
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [commit]
-	gpgsign = true
+  gpgsign = true
 [format]
 	pretty = format:%C(auto,yellow)%h %C(auto,blue)%>(12,trunc)%ad %C(auto,green)%<(20,trunc)%aN%C(auto,reset)%s%C(auto,red)% gD% D
 [alias]
   fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
 [tag]
-    gpgsign = true
+  gpgsign = true
