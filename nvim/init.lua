@@ -559,7 +559,7 @@ local servers = {
       -- diagnostics = { disable = { 'missing-fields' } },
     },
   },
-  snyk_ls = {},
+  -- snyk_ls = {},
 }
 
 -- Setup neovim lua configuration
