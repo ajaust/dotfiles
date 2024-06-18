@@ -638,11 +638,16 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
+    -- Copilot source
+    { name = "copilot" },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },
   },
 }
+
+-- Disable Copilot on startup
+-- vim.cmd("Copilot disable")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
