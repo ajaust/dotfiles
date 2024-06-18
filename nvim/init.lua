@@ -540,11 +540,12 @@ local servers = {
   --  },
   --},
   -- Very fast LSP for Python
-  pylsp = {
-    plugins = {
-      ruff = { enabled = true },
-    },
-  },
+  --pylsp = {
+  --  plugins = {
+  --    ruff = { enabled = true },
+  --  },
+  --},
+  ruff = {},
   --ruff_lsp = {},
   rust_analyzer = {},
   -- tsserver = {},
