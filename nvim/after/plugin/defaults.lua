@@ -92,7 +92,7 @@ vim.opt.isfname:append("@-@")
 
 
 -- Set up color scheme
-vim.cmd [[colorscheme kanagawa]]
+-- vim.cmd [[colorscheme kanagawa]]
 
 -- Python indentation
 -- https://neovim.io/doc/user/indent.html#ft-python-indent
