@@ -21,8 +21,16 @@ current_time=$(date "+%H:%M")
 #battery_status=$(upower --show-info $(upower --enumerate | grep 'BAT') | egrep "state" | awk '{print $2}')
 
 # Audio and multimedia
-audio_volume=$(pamixer --sink "$(pactl list sinks short | grep RUNNING | awk '{print $1}')" --get-volume)
-audio_is_muted=$(pamixer --sink "$(pactl list sinks short | grep RUNNING | awk '{print $1}')" --get-mute)
+active_audio_source=$(pactl list sinks short | grep RUNNING | awk '{print $1}')
+audio_volume="n/a"
+audio_is_muted=false
+
+# We check if there is an active audio source. Otherwise, pamixer crashes and
+# creates a coredump everytime the script is run (basically every few seconds).
+if [[ -n ${active_audio_source} ]]; then
+	audio_volume=$(pamixer --sink "${active_audio_source}" --get-volume)
+	audio_is_muted=$(pamixer --sink "${active_audio_source}" --get-mute)
+fi
 #media_artist=$(playerctl metadata artist)
 #media_song=$(playerctl metadata title)
 #player_status=$(playerctl status)
