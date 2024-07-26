@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 
-for file in /etc/profile.d/modules.sh /etc/profile /etc/bash.bashrc /usr/local.nfs/rc/bashrc ${HOME}/.git-{completion.bash,prompt.sh} ~/.svn-prompt.sh ~/.bash_{exports,aliases,functions,prompt} ~/.fzf.bash /usr/share/fzf/*.bash /usr/share/git/completion/git-{completion.bash,prompt.sh} ${HOME}/.cargo/env  ${HOME}/bin/git-annex.linux/bash/git-completion.bash "$HOME/.cargo/env" "/opt/homebrew/opt/lmod/init/profile" /opt/homebrew/etc/bash_complection "${HOME}/.github-cli-completion.bash" "${HOME}/.radix-completion.bash"
+for file in /etc/profile.d/modules.sh /etc/profile /etc/bash.bashrc /usr/local.nfs/rc/bashrc ${HOME}/.git-{completion.bash,prompt.sh} ~/.svn-prompt.sh ~/.bash_{exports,aliases,functions,prompt} ~/.fzf.bash /usr/share/fzf/*.bash /usr/share/git/completion/git-{completion.bash,prompt.sh} ${HOME}/.cargo/env  ${HOME}/bin/git-annex.linux/bash/git-completion.bash "$HOME/.cargo/env" "/opt/homebrew/opt/lmod/init/profile" /opt/homebrew/etc/bash_completion "${HOME}/.github-cli-completion.bash" "${HOME}/.radix-completion.bash" "${HOME}/.poetry-completion.sh"
 do
     if [[ -f "$file" ]]
     then
