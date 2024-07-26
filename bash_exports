@@ -79,12 +79,15 @@ case $HOSTNAME in
 esac
 
 # Export extra paths
-for directory in /opt/homebrew/bin
-do
-  if [[ -d "${directory}" ]]; then
-    export PATH="${directory}":"${PATH}"
-  fi
-done
+#for directory in /opt/homebrew/bin
+#do
+#  if [[ -d "${directory}" ]]; then
+#    export PATH="${directory}":"${PATH}"
+#  fi
+#done
+if [[ -d "/opt/homebrew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 for directory in /${HOME}/software/modulefiles
 do

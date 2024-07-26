@@ -37,13 +37,13 @@ fi
 #    fi
 #done
 
-HOMEBREW_COMPLETION_DIR="/opt/homebrew/completion.d"
-if [[ -d "${HOMEBREW_COMPLETION_DIR}" ]]; then
-  for f in "${HOMEBREW_COMPLETION_DIR}"
-  do
-    . "$f"
-  done
-fi
+#HOMEBREW_COMPLETION_DIR="/opt/homebrew/completion.d"
+#if [[ -d "${HOMEBREW_COMPLETION_DIR}" ]]; then
+#  for f in "${HOMEBREW_COMPLETION_DIR}"
+#  do
+#    . "$f"
+#  done
+#fi
 
 case $HOSTNAME in
   lapsgs24)
