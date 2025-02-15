@@ -360,6 +360,9 @@ exec thunderbird && sway '[class="thunderbird"]' move container to workspace 2
 # Help GTK+ applications to start faster
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
+# Automount of usb drives
+exec udiskie &
+
 # Automatic display detection
 #exec --no-startup-id kanshi
 exec kanshi
