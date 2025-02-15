@@ -14,8 +14,8 @@ current_time=$(date "+%H:%M")
 #############
 
 # Battery or charger
-battery_charge=$(upower --show-info $(upower --enumerate | grep 'BAT') | egrep "percentage" | awk '{print $2}')
-battery_status=$(upower --show-info $(upower --enumerate | grep 'BAT') | egrep "state" | awk '{print $2}')
+battery_charge=$(upower --show-info $(upower --enumerate | grep 'BAT') | grep -E "percentage" | awk '{print $2}')
+battery_status=$(upower --show-info $(upower --enumerate | grep 'BAT') | grep -E "state" | awk '{print $2}')
 
 # Audio and multimedia
 active_audio_source=$(pactl list sinks short | grep RUNNING | awk '{print $1}')
