@@ -14,8 +14,8 @@ current_time=$(date "+%H:%M")
 #############
 
 # Battery or charger
-battery_charge=$(upower --show-info $(upower --enumerate | grep 'BAT') | grep -E "percentage" | awk '{print $2}')
-battery_status=$(upower --show-info $(upower --enumerate | grep 'BAT') | grep -E "state" | awk '{print $2}')
+battery_charge=$(upower --show-info "$(upower --enumerate | grep 'BAT')" | grep -E "percentage" | awk '{print $2}')
+battery_status=$(upower --show-info "$(upower --enumerate | grep 'BAT')" | grep -E "state" | awk '{print $2}')
 
 # Audio and multimedia
 active_audio_source=$(pactl list sinks short | grep RUNNING | awk '{print $1}')
@@ -32,11 +32,11 @@ fi
 # LAN_IF_NAME
 LAN_IF_NAME=$(ip -br a | cut -d' ' -f1 | tr ' ' '\n' | grep -P e\.\*)
 lan_interface_name=${LAN_IF_NAME}
-ip_address=$(ip -o -4 addr list ${LAN_IF_NAME} | awk '{print $4}' | cut -d'/' -f1)
+ip_address=$(ip -o -4 addr list "${LAN_IF_NAME}" | awk '{print $4}' | cut -d'/' -f1)
 
 # Wifi
 WLAN_IF_NAME=$(ip -br a | cut -d' ' -f1 | tr ' ' '\n' | grep -P w\.\*)
-wlan_ip=$(ip -o -4 addr list ${WLAN_IF_NAME} | awk '{print $4}' | cut -d'/' -f1)
+wlan_ip=$(ip -o -4 addr list "${WLAN_IF_NAME}" | awk '{print $4}' | cut -d'/' -f1)
 
 
 # Others
@@ -54,8 +54,8 @@ if [ "$LAN_IF_NAME" ]; then
 fi
 
 if [ "$WLAN_IF_NAME" ]; then
-	wlan_speed_rx=$(iw dev ${WLAN_IF_NAME} link | grep "rx bitrate" | cut -d' ' -f3)
-	wlan_speed_tx=$(iw dev ${WLAN_IF_NAME} link | grep "tx bitrate" | cut -d' ' -f3)
+	wlan_speed_rx=$(iw dev "${WLAN_IF_NAME}" link | grep "rx bitrate" | cut -d' ' -f3)
+	wlan_speed_tx=$(iw dev "${WLAN_IF_NAME}" link | grep "tx bitrate" | cut -d' ' -f3)
 fi
 
 #if [ $player_status = "Playing" ]
@@ -85,20 +85,20 @@ if [ -d "/sys/class/backlight/amdgpu_bl1" ]; then
 fi
 
 status_line=""
-if [ ${brightness_percentage} ]; then
+if [ "${brightness_percentage}" ]; then
 	status_line="${status_line} | backlight: ${brightness_percentage}%"
 fi
-if [ ${battery_status} != "" ]; then
+if [ "${battery_status}" != "" ]; then
 	status_line="${status_line} | BAT: ${battery_charge} (${battery_status})"
 fi
 status_line="${status_line} | ${language}"
 status_line="${status_line} | / ${disk_space_root}"
-if [ $(cat /sys/class/net/${LAN_IF_NAME}/carrier) -eq "1" ]; then
+if [ "$(cat /sys/class/net/"${LAN_IF_NAME}"/carrier)" -eq "1" ]; then
 	status_line="${status_line} | ${lan_interface_name}: ${ip_address} (${lan_speed} MBit/s)"
 else
 	status_line="${status_line} | ${lan_interface_name}: down"
 fi
-if [ $(cat /sys/class/net/${WLAN_IF_NAME}/carrier) -eq "1" ]; then
+if [ "$(cat /sys/class/net/"${WLAN_IF_NAME}"/carrier)" -eq "1" ]; then
 	status_line="${status_line} | ${WLAN_IF_NAME}: ${wlan_ip} (rx: $wlan_speed_rx, tx: ${wlan_speed_tx} MBit/s)"
 else
 	status_line="${status_line} | ${WLAN_IF_NAME}: (down)"
