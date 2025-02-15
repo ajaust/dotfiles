@@ -71,7 +71,7 @@ fi
 if [ "$audio_is_muted" = "true" ]; then
 	audio_active='muted'
 else
-	audio_active='Vol'
+	audio_active=''
 fi
 
 disk_space_root=$(df -h --output=avail / | tail -n1 | tr -d ' ')
@@ -86,24 +86,24 @@ fi
 
 status_line=""
 if [ "${brightness_percentage}" ]; then
-	status_line="${status_line} | backlight: ${brightness_percentage}%"
+	status_line="${status_line} | 󰃛 ${brightness_percentage}%"
 fi
 if [ "${battery_status}" != "" ]; then
-	status_line="${status_line} | BAT: ${battery_charge} (${battery_status})"
+	status_line="${status_line} |  ${battery_charge} (${battery_status})"
 fi
-status_line="${status_line} | ${language}"
-status_line="${status_line} | / ${disk_space_root}"
+status_line="${status_line} |  ${language}"
+status_line="${status_line} | 󰋊 / ${disk_space_root}"
 if [ "$(cat /sys/class/net/"${LAN_IF_NAME}"/carrier)" -eq "1" ]; then
-	status_line="${status_line} | ${lan_interface_name}: ${ip_address} (${lan_speed} MBit/s)"
+	status_line="${status_line} | 󰈀 ${lan_interface_name}: ${ip_address} (${lan_speed} MBit/s)"
 else
-	status_line="${status_line} | ${lan_interface_name}: down"
+	status_line="${status_line} | 󰈀 ${lan_interface_name}: down"
 fi
 if [ "$(cat /sys/class/net/"${WLAN_IF_NAME}"/carrier)" -eq "1" ]; then
-	status_line="${status_line} | ${WLAN_IF_NAME}: ${wlan_ip} (rx: $wlan_speed_rx, tx: ${wlan_speed_tx} MBit/s)"
+	status_line="${status_line} | 󰖩 ${WLAN_IF_NAME}: ${wlan_ip} (rx: $wlan_speed_rx, tx: ${wlan_speed_tx} MBit/s)"
 else
-	status_line="${status_line} | ${WLAN_IF_NAME}: (down)"
+	status_line="${status_line} | 󰖩 ${WLAN_IF_NAME}: (down)"
 fi
 status_line="${status_line} | load ${loadavg_5min}"
-status_line="${status_line} | audio: ${audio_active} ${audio_volume}%"
+status_line="${status_line} | 󰎇${audio_active} ${audio_volume}%"
 status_line="${status_line} | ${date_and_week} ${current_time}"
 echo "${status_line}"
