@@ -293,8 +293,10 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessDown exec exec "~/.config/sway/scripts/decrease-brightness.sh"
+bindsym XF86MonBrightnessUp exec exec "~/.config/sway/scripts/increase-brightness.sh"
 
 # NumLock on
 input * xkb_numlock enable
