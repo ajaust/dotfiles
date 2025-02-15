@@ -76,7 +76,18 @@ fi
 
 disk_space_root=$(df -h --output=avail / | tail -n1 | tr -d ' ')
 
+# Check for backlight
+if [ -d "/sys/class/backlight/amdgpu_bl1" ]; then
+	current_brightness=$(cat "/sys/class/backlight/amdgpu_bl1/brightness")
+	max_brightness=$(cat "/sys/class/backlight/amdgpu_bl1/max_brightness")
+	#brightness_percentage=$(echo ${current_brightness} / ${max_brightness} * 100| bc -l)
+	brightness_percentage=$(echo "${current_brightness} / ${max_brightness} * 100" | bc -l | xargs printf %.f)
+fi
+
 status_line=""
+if [ ${brightness_percentage} ]; then
+	status_line="${status_line} | backlight: ${brightness_percentage}%"
+fi
 if [ ${battery_status} != "" ]; then
 	status_line="${status_line} | BAT: ${battery_charge} (${battery_status})"
 fi
