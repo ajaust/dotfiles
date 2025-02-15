@@ -74,7 +74,7 @@ general_config_files=("")
 deploy_config_files "${general_config_files[*]}"
 
 # System-independent
-dotconfdirsSystemIndependent=("dunst" "sway" "alacritty" "nvim")
+dotconfdirsSystemIndependent=("dunst" "sway" "alacritty" "nvim" "kanshi")
 # Deploy
 deploy_configs_dirs "" "${dotconfdirsSystemIndependent[@]}"
 
@@ -84,7 +84,7 @@ dotconfdirsSystemDependent=("i3")
 appendname=""
 
 case $HOSTNAME in
-lapsgs24 | archpc) appendname="$HOSTNAME/" ;;
+lapsgs24 | archpc | archpad-t14s-gen3) appendname="$HOSTNAME/" ;;
 *) appendname="" ;;
 esac
 echo "Set appendname to ${appendname}"
