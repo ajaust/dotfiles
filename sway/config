@@ -249,7 +249,7 @@ bar {
     font pango: Source Code Pro 10
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-#    status_command while date +'%Y-%m-%d %H:%M '; do sleep 1; done
+    # status_command while date +'%Y-%m-%d %H:%M '; do sleep 1; done
     status_command while ~/.config/sway/scripts/swaybar.sh; do sleep 1; done
 
     colors {
