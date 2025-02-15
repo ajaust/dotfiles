@@ -87,8 +87,9 @@ esac
 #    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 #fi
 if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
-    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+    export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 fi
+
 
 #if [[ ! -z "${DESKTOP_SESSION}" ]];then
 #    eval $(gnome-keyring-daemon --start)
