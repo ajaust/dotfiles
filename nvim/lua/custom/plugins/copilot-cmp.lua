@@ -1,18 +1,3 @@
--- Color scheme
-return {
-  event = "InsertEnter",
-  "zbirenbaum/copilot-cmp",
-  config = function ()
-    require("copilot_cmp").setup()
-  end,
-  dependencies = {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    config = function()
-      require("copilot").setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-      })
-    end,
-  },
-}
+-- copilot-cmp is no longer used (nvim-cmp replaced by blink.cmp)
+-- Copilot integration is now via inline suggestions in copilot.lua
+return {}
